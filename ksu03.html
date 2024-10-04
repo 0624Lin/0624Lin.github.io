@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+	<link rel="stylesheet" href="css/ksucss.css">
+</head>
+<body>
+	<div class="webbox">
+		<div class="banner">
+			<img src="images/logo.jpg" alt="">
+			<div>熱門旅遊景點</div>
+		</div>
+		<div class="menubar">
+			<a href="ksu01.html">首頁</a>
+			<a href="ksu02-1.html">景點介紹</a>
+			<a href="ksu03.html" class="active">旅遊相簿</a>
+			<a href="ksu04.html">網站地圖</a>
+		</div>
+		<div class="content">
+			<h2>旅遊相簿</h2>
+			<div class="view">
+				<div class="left" onclick="prev()">&lt</div>
+				<div class="right" onclick="next()">&gt</div>
+				<div id="picBox">
+					<img src="album/洪崖洞.jpg" alt="" title="洪崖洞">
+					<img src="album/大熊貓.jpg" alt="" title="臥龍自然保護區">
+					<img src="album/稻城亞丁.jpg" alt="" title="稻城亞丁風景區">
+					<img src="album/四姑娘山.jpg" alt="" title="四姑娘山風景名勝區">
+					<img src="album/九寨溝.jpg" alt="" title="九寨溝風景名勝區">
+					<img src="album/布達拉宮.jpg" alt="" title="布達拉宮">
+					<img src="album/林芝.jpg" alt="" title="林芝桃花園">
+					<img src="album/納木措湖.jpg" alt="" title="納木措湖">
+					<img src="album/崑崙山.jpg" alt="" title="崑崙山">
+					<img src="album/羊卓雍錯.jpg" alt="" title="羊卓雍錯">
+					<img src="album/塔爾寺.jpg" alt="" title="塔爾寺">
+					<img src="album/氂牛.jpg" alt="" title="可可西里">
+					<img src="album/青海湖.jpg" alt="" title="青海湖">
+					<img src="album/青海油菜花.jpg" alt="" title="門源油菜花">
+					<img src="album/茶卡鹽湖.jpg" alt="" title="茶卡鹽湖">
+					<img src="album/交河故城.jpg" alt="" title="交河故城">
+					<img src="album/天池.jpg" alt="" title="天山天池風景區">
+					<img src="album/火焰山.jpg" alt="" title="火焰山">
+					<img src="album/喀納斯湖.jpg" alt="" title="喀納斯湖">
+					<img src="album/坎兒井.jpg" alt="" title="坎兒井">
+					<img src="album/麗江古城.jpg" alt="" title="麗江古城">
+					<img src="album/石門關.jpg" alt="" title="石門關風景區">
+					<img src="album/噶丹松贊林寺.jpg" alt="" title="噶丹松贊林寺">
+					<img src="album/撒瑪壩萬畝梯田.jpg" alt="" title="撒瑪壩萬畝梯田">
+					<img src="album/玉龍雪山.jpg" alt="" title="玉龍雪山">
+				</div>
+		</div>
+		<div class="rBtnBox" onclick="movePic()">
+			<b>四川逍遙遊</b><br>
+			<span class="rBtn active" data-id="0"></span>
+			<span class="rBtn" data-id="1"></span>
+			<span class="rBtn" data-id="2"></span>
+			<span class="rBtn" data-id="3"></span>
+			<span class="rBtn" data-id="4"></span><br>
+			<b>西藏大冒險</b><br>
+			<span class="rBtn" data-id="5"></span>
+			<span class="rBtn" data-id="6"></span>
+			<span class="rBtn" data-id="7"></span>
+			<span class="rBtn" data-id="8"></span>
+			<span class="rBtn" data-id="9"></span><br>
+			<b>青海看氂牛</b><br>
+			<span class="rBtn" data-id="10"></span>
+			<span class="rBtn" data-id="11"></span>
+			<span class="rBtn" data-id="12"></span>
+			<span class="rBtn" data-id="13"></span>
+			<span class="rBtn" data-id="14"></span><br>
+			<b>新疆絲路行</b><br>
+			<span class="rBtn" data-id="15"></span>
+			<span class="rBtn" data-id="16"></span>
+			<span class="rBtn" data-id="17"></span>
+			<span class="rBtn" data-id="18"></span>
+			<span class="rBtn" data-id="19"></span><br>
+			<b>去雲南秘境</b><br>
+			<span class="rBtn" data-id="20"></span>
+			<span class="rBtn" data-id="21"></span>
+			<span class="rBtn" data-id="22"></span>
+			<span class="rBtn" data-id="23"></span>
+			<span class="rBtn" data-id="24"></span><br>
+		</div>
+	</div>
+	<div class="footer">
+		本網站為資管系『基礎伺服器網頁程式設計』學習資料內容，一切的內容都用在學習上， 並不會使用於商業行為，主要作為自己未來學習歷程的解析之用。
+		若網頁內容方面有任何不小心的侵權，還請與作者聯繫，我們會盡快撤除的。設計者：林妤楹 b28632459@gmail.com, ©2023
+	</div>
+</div>
+	<script>
+		var picno=0;
+		//var rBtns = document.querySelectorAll("span[class*='rBtn']");
+		var rBtns = document.getElementsByClassName("rBtn");
+		
+		var picBox = document.getElementById("picBox");
+		
+		function prev()
+		{
+			if(picno>0)
+			{
+				rBtns[picno].classList.toggle("active");
+				picno--;
+				rBtns[picno].classList.toggle("active");
+				var len="translateX("+(-picno*400)+"px)";
+				picBox.style.transform=len;
+			}
+				
+		}
+		function next()
+		{
+			if(picno<24)
+			{
+				rBtns[picno].classList.toggle("active");
+				picno++;
+				rBtns[picno].classList.toggle("active");
+				var len="translateX("+(-picno*400)+"px)";
+				picBox.style.transform=len;		
+			}	
+		}
+		function movePic()
+		{
+			var obj = event.target;
+			
+			if(obj.tagName == "SPAN")
+			{
+				var no = parseInt(obj.dataset.id);
+				rBtns[picno].classList.toggle("active");
+				picno = no;
+				rBtns[picno].classList.toggle("active");
+				var len="translateX("+(-picno*400)+"px)";
+				picBox.style.transform=len;	
+			}
+		}
+	</script>
+</body>
+</html>
